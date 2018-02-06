@@ -138,9 +138,9 @@ var FileUploader = (function () {
                 // add formData
                 if (first) {
                     item.formData.map(obj => {
-                        obj.map((value, key) => {
-                            sendable.append(key, value);
-                        });
+                        for (let key in obj) {
+                            sendable.append(key, obj[key]);
+                        }
                     });
                     first = false;
                 }
